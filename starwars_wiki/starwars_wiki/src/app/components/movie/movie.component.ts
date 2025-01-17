@@ -12,7 +12,7 @@ export class MovieComponent implements OnInit {
 
   constructor(public ApiService: ApiService) { }
 
-   movies: Movie[] = [];
+  movies: Movie[] = [];
 
   async ngOnInit() {
     this.movies = await this.ApiService.getmovies();

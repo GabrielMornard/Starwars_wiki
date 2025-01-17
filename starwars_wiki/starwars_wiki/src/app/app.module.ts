@@ -1,3 +1,4 @@
+import { PeopleComponent } from './components/people/people.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MovieComponent
+    MovieComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,77 +1,83 @@
-/* Movie Container */
+/* Movie container */
 .movie-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping to the next line if there's not enough space */
-  justify-content: space-between; /* Space between cards */
-  gap: 20px; /* Adds space between each card */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid with up to 3 cards per row */
+  gap: 20px; /* Space between cards */
   padding: 20px;
+  background-color: #121212; /* Dark Space Black background */
   max-width: 1200px; /* Set a maximum width for the container */
-  margin: 0 auto; /* Centers the container horizontally */
-  background-color: #121212; /* Dark Space Black (background for the container) */
+  margin: 0 auto; /* Center the grid container */
 }
 
-/* Movie Card */
+/* Movie card */
 .movie-card {
-  width: calc(33.33% - 20px); /* Ensures 3 cards per row, accounting for the gap */
-  background-color: #272727; /* Dark Charcoal for movie cards (sleek, modern look) */
+  background-color: #1a1a1a; /* Slightly lighter dark background */
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Movie card header (image section) */
+.movie-card-header {
+  height: 250px; /* Fixed height for poster */
+  overflow: hidden;
+  background-color: #000000; /* Placeholder background for missing images */
 }
 
 .movie-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 2px solid #F0F0F0; /* Galactic White (border color to contrast) */
+  height: 100%;
+  object-fit: cover; /* Ensures images fit nicely */
 }
 
-/* Movie Info Section */
-.movie-info {
+/* Movie card body (text section) */
+.movie-card-body {
   padding: 15px;
-  color: #F0F0F0; /* Galactic White for text */
+  text-align: center;
 }
 
-/* Movie Title */
 .movie-title {
   font-size: 1.5em;
   font-weight: bold;
-  color: #F1C40F; /* Imperial Yellow for title */
+  color: #F1C40F; /* Imperial Yellow for titles */
+  margin: 10px 0 5px;
 }
 
-/* Movie Release Date */
 .movie-release-date {
-  font-size: 1.1em;
-  color: #777; /* Darker gray for subtle text */
+  font-size: 1em;
+  color: #BDC3C7; /* Metallic Silver for subtler text */
+  margin-bottom: 15px;
 }
 
-/* Button for More Info */
+/* Movie card footer (button section) */
+.movie-card-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a; /* Same as card for seamless design */
+}
+
 .btn-info {
-  background-color: #4A90E2; /* Lightsaber Blue for the button */
+  background-color: #4A90E2; /* Lightsaber Blue */
   border: none;
+  color: white;
   padding: 10px 20px;
   font-size: 1em;
-  color: white;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-info:hover {
-  background-color: #56D798; /* Lightsaber Green for hover effect */
-}
-
-/* Responsive layout for smaller screens */
-@media (max-width: 1024px) {
-  .movie-card {
-    width: calc(50% - 20px); /* 2 cards per row on tablets */
-  }
-}
-
-@media (max-width: 768px) {
-  .movie-card {
-    width: 100%; /* 1 card per row on small screens */
-  }
+  background-color: #56D798; /* Lightsaber Green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }

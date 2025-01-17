@@ -1,0 +1,37 @@
+import { Component, OnInit } from '@angular/core';
+import { People } from '../models/models';
+import { ApiService } from '../services/api.service';
+
+@Component({
+  standalone: false,
+  selector: 'app-people',
+  templateUrl: './people.component.html',
+  styleUrls: ['./people.component.css']
+})
+export class PeopleComponent implements OnInit {
+
+  constructor(public ApiService: ApiService) { }
+
+  peoples: People[] = [];
+  isLoading: boolean = false;
+
+  async ngOnInit() {
+    this.isLoading = true;
+    this.peoples = await this.ApiService.getCharacters();
+    this.isLoading = false;
+  }
+
+  // Load the next page of characters
+  async loadNextPage() {
+    this.isLoading = true;
+    this.peoples = await this.ApiService.getNextPage();
+    this.isLoading = false;
+  }
+
+  // Load the previous page of characters
+  async loadPreviousPage() {
+    this.isLoading = true;
+    this.peoples = await this.ApiService.getPreviousPage();
+    this.isLoading = false;
+  }
+}

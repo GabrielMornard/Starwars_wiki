@@ -5,131 +5,69 @@
   box-sizing: border-box;
 }
 
-/* Ensure the whole page uses flexbox and takes up at least full height of the viewport */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;  /* Makes sure the body takes up at least 100% of the viewport height */
-  margin: 0;
-  background-color: #121212; /* Dark Space Black background */
-  color: #F0F0F0; /* Galactic White for default text color */
-}
-
 /* Navbar container */
 .navbar {
-  background-color: #121212; /* Dark Charcoal for the navbar background */
+  background-color: #121212; /* Dark Space Black for the navbar background */
   color: #F0F0F0; /* Galactic White for text */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
   width: 100%;
-  /* Removed position: fixed; for non-fixed navbar */
-  height: 60px; /* Set a fixed height for the navbar */
-  transition: background-color 0.3s ease; /* Smooth background transition on scroll */
+  height: 70px; /* Set a fixed height for the navbar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-bottom: 2px solid #F1C40F; /* Imperial Yellow for navbar bottom border */
+  font-family: 'Arial', sans-serif; /* Clean, modern font */
 }
 
 /* Logo style */
 .navbar .logo {
   font-size: 2em;
   font-weight: bold;
-  letter-spacing: 1px;
   color: #F1C40F; /* Imperial Yellow for the logo */
+  letter-spacing: 1.5px; /* Slight spacing for a bold logo look */
+  text-transform: uppercase;
+  cursor: pointer; /* Add a pointer cursor for interactivity */
 }
 
 /* Navigation links container */
 .navbar .nav-links {
   display: flex;
-  gap: 25px; /* Increased gap for better spacing */
+  gap: 20px; /* Space between links */
 }
 
 /* Links style */
 .navbar .nav-links a {
   color: #F0F0F0; /* Galactic White for link text */
-  text-decoration: none;
-  font-size: 1.1em;
+  text-decoration: none; /* Remove underlines */
+  font-size: 1.1em; /* Slightly larger font size */
   font-weight: 500; /* Slightly bold text */
-  transition: color 0.3s, transform 0.2s ease; /* Smooth color change and scale */
+  padding: 5px 10px; /* Add padding for clickable area */
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition on hover */
 }
 
-/* Hover effect */
+/* Hover effect for links */
 .navbar .nav-links a:hover {
-  color: #F1C40F; /* Imperial Yellow for hover effect */
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  color: #56D798; /* Lightsaber Green for hover effect */
+  transform: scale(1.1); /* Slight zoom effect */
+  text-shadow: 0 0 5px rgba(86, 215, 152, 0.8); /* Glow effect on hover */
 }
 
-/* Active navbar background color on scroll */
-.navbar.scrolled {
-  background-color: #121212; /* Dark Space Black when scrolled */
-}
-
-/* Content section: takes up remaining space */
-.content {
-  flex: 1; /* This makes content grow and take up the remaining space */
-  padding-top: 60px; /* Add space below the navbar to prevent content from being hidden behind it */
-  padding: 20px;
-  background-color: #121212; /* Dark Space Black background for content */
-  color: #F0F0F0; /* Galactic White for text */
-}
-
-/* Footer stays at the bottom */
-app-footer {
-  margin-top: auto; /* Pushes footer down when content is short */
-  background-color: #000000; /* Dark Charcoal for footer */
-  color: #F0F0F0; /* Galactic White for footer text */
-  text-align: center;
-  font-size: 1.1em;
-}
-
-/* Buttons for actions (use Lightsaber Blue for main actions) */
-button {
-  background-color: #4A90E2; /* Lightsaber Blue */
-  color: #FFFFFF; /* White text on blue buttons */
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #56D798; /* Lightsaber Green on hover */
-}
-
-/* Alerts or important action items (use Rebel Red) */
-.alert {
-  background-color: #E74C3C; /* Rebel Red */
-  color: #FFFFFF; /* White text on red alert */
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-}
-
-/* Subtle highlights for important text (Imperial Yellow for small highlights) */
-.highlight {
-  color: #F1C40F; /* Imperial Yellow for highlights */
-  font-weight: bold;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 1024px) {
-  .navbar {
-    font-size: 1em; /* Adjust navbar font size for smaller screens */
-  }
-
-  .content {
-    padding: 15px; /* Less padding on smaller screens */
-  }
-}
-
+/* Responsive design for mobile devices */
 @media (max-width: 768px) {
   .navbar {
-    font-size: 0.9em; /* Smaller font size for mobile */
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    height: auto; /* Adjust height for stacking links */
   }
 
-  .content {
-    padding: 10px; /* Smaller padding for mobile */
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Reduce gap between links */
+  }
+
+  .nav-links a {
+    font-size: 1.3em; /* Slightly larger for mobile */
   }
 }

@@ -1,0 +1,24 @@
+<div *ngIf="isLoading">Loading...</div>
+
+<div *ngIf="!isLoading">
+  <div class="character-container">
+    <div *ngFor="let character of peoples" class="character-card">
+      <div class="character-image">
+        <img [src]="" alt="{{ character.name }}" />
+      </div>
+      <div class="character-info">
+        <h3 class="character-name">{{ character.name }}</h3>
+        <p class="character-detail"><strong>Height:</strong> {{ character.height }} cm</p>
+        <p class="character-detail"><strong>Mass:</strong> {{ character.mass }} kg</p>
+        <p class="character-detail"><strong>Hair Color:</strong> {{ character.hair_color }}</p>
+        <p class="character-detail"><strong>Gender:</strong> {{ character.gender }}</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="pagination-buttons">
+    <button class="previous" (click)="loadPreviousPage()" [disabled]="!ApiService.hasPreviousPage()">Previous</button>
+    <button class="next" (click)="loadNextPage()" [disabled]="!ApiService.hasNextPage()">Next</button>
+  </div>
+</div>

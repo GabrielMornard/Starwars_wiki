@@ -10,18 +10,14 @@ body {
 
 /* Navbar remains fixed at the top */
 app-navbar {
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
   background-color: #121212; /* Dark Charcoal for navbar background */
   color: #F0F0F0; /* Galactic White for text */
-  padding: 15px 20px;
   font-size: 1.2em;
-  border-bottom: 2px solid #F1C40F; /* Imperial Yellow for navbar bottom border */
   height: auto; /* Set a fixed height for the navbar */
-}
-
+} 
 /* Content section: takes up remaining space */
 .content {
   flex: 1; /* This makes content grow and take up the remaining space */
