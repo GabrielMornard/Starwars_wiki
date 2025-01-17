@@ -1,3 +1,10 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Ensure the whole page uses flexbox and takes up at least full height of the viewport */
 body {
   display: flex;
@@ -8,18 +15,52 @@ body {
   color: #F0F0F0; /* Galactic White for default text color */
 }
 
-/* Navbar remains fixed at the top */
-app-navbar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  background-color: #121212; /* Dark Charcoal for navbar background */
+/* Navbar container */
+.navbar {
+  background-color: #121212; /* Dark Charcoal for the navbar background */
   color: #F0F0F0; /* Galactic White for text */
-  padding: 15px 20px;
-  font-size: 1.2em;
-  border-bottom: 2px solid #F1C40F; /* Imperial Yellow for navbar bottom border */
-  height: auto; /* Set a fixed height for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  width: 100%;
+  /* Removed position: fixed; for non-fixed navbar */
+  height: 60px; /* Set a fixed height for the navbar */
+  transition: background-color 0.3s ease; /* Smooth background transition on scroll */
+}
+
+/* Logo style */
+.navbar .logo {
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #F1C40F; /* Imperial Yellow for the logo */
+}
+
+/* Navigation links container */
+.navbar .nav-links {
+  display: flex;
+  gap: 25px; /* Increased gap for better spacing */
+}
+
+/* Links style */
+.navbar .nav-links a {
+  color: #F0F0F0; /* Galactic White for link text */
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500; /* Slightly bold text */
+  transition: color 0.3s, transform 0.2s ease; /* Smooth color change and scale */
+}
+
+/* Hover effect */
+.navbar .nav-links a:hover {
+  color: #F1C40F; /* Imperial Yellow for hover effect */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Active navbar background color on scroll */
+.navbar.scrolled {
+  background-color: #121212; /* Dark Space Black when scrolled */
 }
 
 /* Content section: takes up remaining space */
@@ -72,9 +113,9 @@ button:hover {
   font-weight: bold;
 }
 
-/* Responsive Layout for smaller screens */
+/* Mobile responsiveness */
 @media (max-width: 1024px) {
-  app-navbar {
+  .navbar {
     font-size: 1em; /* Adjust navbar font size for smaller screens */
   }
 
@@ -84,7 +125,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  app-navbar {
+  .navbar {
     font-size: 0.9em; /* Smaller font size for mobile */
   }
 

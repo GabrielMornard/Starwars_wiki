@@ -1,0 +1,20 @@
+/* Footer styles */
+.footer {
+  background-color: #121212; /* Dark Charcoal for the footer background */
+  color: #F0F0F0; /* Galactic White for the text color */
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #F1C40F;
+  font-size: 1em;
+  position: relative;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer .highlight {
+  color: #F1C40F; /* Imperial Yellow */
+  font-weight: bold;
+}
