@@ -7,7 +7,7 @@ export class Movie{
     release_date: Date; 
     characters: People[];
     planets: String;//A CHANGER
-    starships: String;//A CHANGER
+    starships: Starship[];
     vehicles: String;//A CHANGER
     species: String;// A CHANGER
     created: String;
@@ -24,7 +24,7 @@ export class Movie{
         release_date: string | Date,
         characters: People[] = [],
         planets: string = '',
-        starships: string = '',
+        starships: Starship[] = [],
         vehicles: string = '',
         species: string = '',
         created: string,
@@ -36,7 +36,7 @@ export class Movie{
         this.opening_crawl = opening_crawl;
         this.director = director;
         this.producer = producer;
-        this.release_date = new Date(release_date); // Convert string to Date object
+        this.release_date = new Date(release_date);
         this.characters = characters;
         this.planets = planets;
         this.starships = starships;
@@ -61,7 +61,7 @@ export class People{
   films: Movie[];
   species: String[]; //A CHANGER
   vehicles: String[]; //A CHANGER
-  starships: String[]; //A CHANGER
+  starships: Starship[];
   created: String;
   edited: String;
   url: String;
@@ -79,7 +79,7 @@ export class People{
     films: Movie[] = [],
     species: String[] = [],
     vehicles: String[] = [],
-    starships: String[] = [],
+    starships: Starship[] = [],
     created: String = '',
     edited: String = '',
     url: String = ''
@@ -99,6 +99,67 @@ export class People{
     this.starships = starships;
     this.created = created;
     this.edited = edited;
+    this.url = url;
+  }
+}
+
+export class Starship {
+  mglt: String;
+  cargo_capacity: String;
+  consumables: String;
+  cost_in_credits: String;
+  created: String;
+  crew: String;
+  edited: String;
+  hyperdrive_rating: String;
+  length: String;
+  manufacturer: String;
+  max_atmosphering_speed: String;
+  model: String;
+  name: String;
+  passengers: String;
+  films: Movie[];
+  pilots: People[];
+  starship_class: String;
+  url: String;
+
+  constructor(
+    mglt: String = '',
+    cargo_capacity: String = '',
+    consumables: String = '',
+    cost_in_credits: String = '',
+    created: String = '',
+    crew: String = '',
+    edited: String = '',
+    hyperdrive_rating: String = '',
+    length: String = '',
+    manufacturer: String = '',
+    max_atmosphering_speed: String = '',
+    model: String = '',
+    name: String = '',
+    passengers: String = '',
+    films: Movie[] = [],
+    pilots: People[] = [],
+    starship_class: String = '',
+    url: String = ''
+  ) {
+    this.mglt = mglt;
+    this.cargo_capacity = cargo_capacity;
+    this.consumables = consumables;
+    this.cost_in_credits = cost_in_credits;
+    this.created = created;
+    this.crew = crew;
+    this.edited = edited;
+    this.hyperdrive_rating = hyperdrive_rating;
+    this.length = length;
+    this.manufacturer = manufacturer;
+    this.max_atmosphering_speed = max_atmosphering_speed;
+    this.model = model;
+    this.name = name;
+    this.passengers = passengers;
+    this.films = films;
+    this.pilots = pilots;
+    this.starship_class = starship_class;
     this.url = url;
   }
 }

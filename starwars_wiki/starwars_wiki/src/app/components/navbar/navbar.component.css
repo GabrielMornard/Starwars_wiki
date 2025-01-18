@@ -27,7 +27,6 @@
   color: #F1C40F; /* Imperial Yellow for the logo */
   letter-spacing: 1.5px; /* Slight spacing for a bold logo look */
   text-transform: uppercase;
-  cursor: pointer; /* Add a pointer cursor for interactivity */
 }
 
 /* Navigation links container */

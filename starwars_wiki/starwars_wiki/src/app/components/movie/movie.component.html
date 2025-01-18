@@ -1,7 +1,7 @@
 <div class="movie-container">
   <div class="movie-card" *ngFor="let movie of movies">
     <div class="movie-card-header">
-      <img src="" alt="Movie Poster" class="movie-image" />
+      <img [src]="getMovieImage(movie)" alt="Movie Poster" class="movie-image" />
     </div>
     <div class="movie-card-body">
       <h2 class="movie-title">{{ movie.title }}</h2>

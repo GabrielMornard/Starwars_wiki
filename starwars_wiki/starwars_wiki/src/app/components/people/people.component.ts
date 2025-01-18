@@ -21,6 +21,19 @@ export class PeopleComponent implements OnInit {
     this.isLoading = false;
   }
 
+  getIdFromUrl(url: string): number | null {
+    const match = url.match(/\/(\d+)\/$/);
+    return match ? parseInt(match[1], 10) : null;
+  }
+
+  getCharacterImage(character: any): string {
+    const characterId = this.getIdFromUrl(character.url); // Extract ID from the URL
+    if (characterId !== null) {
+      return `assets/people/${characterId}.jpg`; // Dynamically create the image URL
+    }
+    return 'assets/placeholder.jpg'; // Fallback image if ID is null
+  }
+
   // Load the next page of characters
   async loadNextPage() {
     this.isLoading = true;

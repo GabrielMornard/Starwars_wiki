@@ -1,3 +1,15 @@
+/* Apply flexbox to the body to allow footer positioning at the bottom */
+body {
+  min-height: 100vh; /* Ensures body takes up at least 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content section (flexes to take the remaining space) */
+.main-content {
+  flex: 1; /* Makes the main content grow to fill the available space */
+}
+
 /* Footer styles */
 .footer {
   background-color: #121212; /* Dark Charcoal for the footer background */
@@ -6,8 +18,7 @@
   padding: 20px;
   border-top: 1px solid #F1C40F;
   font-size: 1em;
-  position: relative;
-  bottom: 0;
+  z-index: 10; /* Ensure it stays on top of other content */
 }
 
 .footer p {
@@ -17,4 +28,8 @@
 .footer .highlight {
   color: #F1C40F; /* Imperial Yellow */
   font-weight: bold;
+}
+
+a{
+  color: #F1C40F;
 }

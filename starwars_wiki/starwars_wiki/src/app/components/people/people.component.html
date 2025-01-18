@@ -1,10 +1,14 @@
-<div *ngIf="isLoading">Loading...</div>
+<!-- Spinner: Shows when data is loading -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div> <!-- Spinner for loading -->
+</div>
 
+<!-- Character Cards: Only shows when data is loaded -->
 <div *ngIf="!isLoading">
   <div class="character-container">
     <div *ngFor="let character of peoples" class="character-card">
       <div class="character-image">
-        <img [src]="" alt="{{ character.name }}" />
+        <img [src]="getCharacterImage(character)" alt="{{ character.name }}" />
       </div>
       <div class="character-info">
         <h3 class="character-name">{{ character.name }}</h3>
@@ -17,6 +21,7 @@
   </div>
   
 
+  <!-- Pagination Buttons -->
   <div class="pagination-buttons">
     <button class="previous" (click)="loadPreviousPage()" [disabled]="!ApiService.hasPreviousPage()">Previous</button>
     <button class="next" (click)="loadNextPage()" [disabled]="!ApiService.hasNextPage()">Next</button>

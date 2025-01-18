@@ -1,110 +1,176 @@
-.character-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 75px; /* Set gap between grid items */
-  padding: 20px;
-  justify-items: center;
+/* Overlay for the loading state */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures it's on top */
 }
 
+/* Spinner style */
+.spinner {
+  border: 16px solid #f3f3f3; /* Light grey color */
+  border-top: 16px solid #3498db; /* Blue color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Character card container */
+.character-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Flexible grid with 280px min width */
+  gap: 60px; /* Space between grid items */
+  padding: 20px;
+  justify-items: center;
+  margin-bottom: 20px; /* Prevent overlap with pagination */
+}
+
+/* Pagination buttons container */
 .pagination-buttons {
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
   gap: 20px; /* Space between buttons */
-  margin-top: 20px; /* Optional: space above the buttons */
+  margin-top: 20px;
 }
 
+/* Character card styling */
 .character-card {
   display: flex;
-  background-color: #333; /* Same background color for consistency */
+  background-color: #1a1a1a; /* Slightly darker background for cards */
   color: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
   padding: 20px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px; /* Limit max card width */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .character-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px); /* Lift effect */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
+/* Image styling inside character card */
 .character-image {
-  flex: 0 0 120px; /* Fixed width for the image */
-  margin-right: 20px;
+  flex: 0 0 120px; /* Fixed image width */
+  margin-right: 20px; /* Space between image and text */
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .character-image img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover; /* Ensure image fits and covers the container */
 }
 
+/* Character info section inside card */
 .character-info {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .character-name {
   font-size: 1.5rem;
-  margin-top: 0;
   font-weight: bold;
+  color: #F1C40F; /* Imperial Yellow */
+  margin-bottom: 10px;
 }
 
 .character-detail {
   font-size: 1rem;
   margin-top: 10px;
-  color: #ccc;
+  color: #BDC3C7; /* Light metallic silver for text */
 }
 
-strong {
-  color: #fff;
+.character-detail strong {
+  color: #F1C40F; /* Imperial Yellow for label text */
 }
+
+/* Button styles */
 button {
-  background-color: #4CAF50; /* Green background for the default button */
-  color: white;
+  background-color: #15f2fd; /* Lightsaber Blue */
+  color: rgb(0, 0, 0);
   border: none;
   padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transform: scale(1.05); /* Slight scale effect on hover */
+  background-color: #0eacb4; /* Darker cyan on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Specific styles for the "Previous" button */
+button:disabled {
+  background-color: #ccc; /* Gray when disabled */
+  cursor: not-allowed; /* Disable cursor */
+}
+
+/* Specific styling for the Previous button */
 button.previous {
-  background-color: #e60000; /* Lightsaber red background */
+  background-color: #e60000; /* Red background for Previous */
 }
 
 button.previous:hover {
   background-color: #cc0000; /* Darker red on hover */
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Glowing effect on hover */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Glowing effect */
 }
 
-button.previous:disabled {
-  background-color: #ccc; /* Gray background when disabled */
-  cursor: not-allowed; /* Disable cursor */
-}
-
-button.previous:disabled:hover {
-  background-color: #ccc; /* Disabled state doesn't change */
-}
-
-/* Regular button styles for Next */
+/* Specific styling for the Next button */
 button.next {
-  background-color: #4CAF50; /* Green background */
+  background-color: #15f2fd; /* Lightsaber Blue */
 }
 
 button.next:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #0eacb4; /* Darker cyan on hover */
+}
+
+/* Responsive Layout for smaller screens */
+@media (max-width: 1024px) {
+  .character-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive layout for smaller screens */
+    gap: 20px; /* Reduced gap on smaller screens */
+  }
+
+  .character-card {
+    max-width: 350px; /* Adjust max width for smaller devices */
+  }
+
+  .pagination-buttons {
+    gap: 15px; /* Reduced gap for pagination buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .character-container {
+    grid-template-columns: 1fr; /* Single column layout for very small screens */
+    gap: 15px;
+  }
+
+  .character-card {
+    max-width: 100%; /* Full width for character cards */
+  }
+
+  .pagination-buttons {
+    gap: 10px; /* Further reduced gap for mobile */
+  }
 }
