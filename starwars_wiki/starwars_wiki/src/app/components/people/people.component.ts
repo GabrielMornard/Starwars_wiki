@@ -17,6 +17,7 @@ export class PeopleComponent implements OnInit {
 
   async ngOnInit() {
     this.isLoading = true;
+    // Initial load of characters (people)
     this.peoples = await this.ApiService.getCharacters();
     this.isLoading = false;
   }
@@ -37,14 +38,16 @@ export class PeopleComponent implements OnInit {
   // Load the next page of characters
   async loadNextPage() {
     this.isLoading = true;
-    this.peoples = await this.ApiService.getNextPage();
+    // Pass the correct URL for the next page of characters
+    this.peoples = await this.ApiService.getNextPage<People>(`${this.ApiService.serverUrl}people/`);
     this.isLoading = false;
   }
 
   // Load the previous page of characters
   async loadPreviousPage() {
     this.isLoading = true;
-    this.peoples = await this.ApiService.getPreviousPage();
+    // Pass the correct URL for the previous page of characters
+    this.peoples = await this.ApiService.getPreviousPage<People>(`${this.ApiService.serverUrl}people/`);
     this.isLoading = false;
   }
 }

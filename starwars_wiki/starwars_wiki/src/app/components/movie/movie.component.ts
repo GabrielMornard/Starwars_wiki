@@ -13,9 +13,11 @@ export class MovieComponent implements OnInit {
   constructor(public ApiService: ApiService) { }
 
   movies: Movie[] = [];
-
+  isLoading: boolean = false;
   async ngOnInit() {
-    this.movies = await this.ApiService.getmovies();
+    this.isLoading = true;
+    this.movies = await this.ApiService.getMovies();
+    this.isLoading = false;
   }
 
   getIdFromUrl(url: string): number | null {

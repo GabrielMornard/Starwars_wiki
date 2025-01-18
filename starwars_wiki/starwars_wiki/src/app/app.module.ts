@@ -7,6 +7,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { StarshipComponent } from './components/starship/starship.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     FooterComponent,
     MovieComponent,
-    PeopleComponent
+    PeopleComponent,
+    StarshipComponent
   ],
   imports: [
     BrowserModule,

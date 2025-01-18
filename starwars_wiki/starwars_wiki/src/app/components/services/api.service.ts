@@ -1,67 +1,106 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { Movie, People } from '../models/models';
+import { Movie, People, Planet, Species, Starship, Vehicle } from '../models/models';
 
-interface PeopleResponse {
-  count: number;
+interface PaginatedResponse<T> {
+  results: T[];
   next: string | null;
   previous: string | null;
-  results: People[];
 }
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root',
+})
 export class ApiService {
+  serverUrl = 'https://swapi.dev/api/';
 
-serverUrl = "https://swapi.dev/api/";
+  private nextUrl: string | null = null;
+  private previousUrl: string | null = null;
 
-private nextUrl: string | null = null;
-private previousUrl: string | null = null;
+  constructor(public http: HttpClient) {}
 
-constructor(public http: HttpClient) { }
+  // Generic method for fetching data with pagination
+  private async getPaginatedData<T>(url: string): Promise<PaginatedResponse<T>> {
+    const result = await lastValueFrom(this.http.get<PaginatedResponse<T>>(url));
+    this.nextUrl = result.next;
+    this.previousUrl = result.previous;
+    return result;
+  }
 
-async getmovies(): Promise<Movie[]> {
-    const result = await lastValueFrom(this.http.get<any>(this.serverUrl + "films/"));
+  // Generic method to get the next page of any data type
+  async getNextPage<T>(url: string): Promise<T[]> {
+    if (this.hasNextPage()) {
+      const result = await this.getPaginatedData<T>(this.nextUrl!);
+      return result.results; // Return only the results array
+    } else {
+      console.log('No next page');
+      return [];
+    }
+  }
+
+  // Generic method to get the previous page of any data type
+  async getPreviousPage<T>(url: string): Promise<T[]> {
+    if (this.hasPreviousPage()) {
+      const result = await this.getPaginatedData<T>(this.previousUrl!);
+      return result.results; // Return only the results array
+    } else {
+      console.log('No previous page');
+      return [];
+    }
+  }
+
+  // Check if there is a next page
+  hasNextPage(): boolean {
+    return this.nextUrl !== null;
+  }
+
+  // Check if there is a previous page
+  hasPreviousPage(): boolean {
+    return this.previousUrl !== null;
+  }
+
+  // Fetch movies
+  async getMovies(): Promise<Movie[]> {
+    const result = await lastValueFrom(
+      this.http.get<any>(this.serverUrl + 'films/')
+    );
     console.log(result);
     return result.results;
-}
-
-async getCharacters(pageUrl: string = `${this.serverUrl}people/`): Promise<People[]> {
-  const result = await lastValueFrom(this.http.get<PeopleResponse>(pageUrl));
-  this.nextUrl = result.next;
-  this.previousUrl = result.previous;
-
-  console.log(result); // Optional, for debugging
-  return result.results;
-}
-hasNextPage(): boolean {
-  return this.nextUrl !== null;
-}
-
-// Method to check if there is a previous page
-hasPreviousPage(): boolean {
-  return this.previousUrl !== null;
-}
-
-// Get next page of characters
-async getNextPage(): Promise<People[]> {
-  if (this.hasNextPage()) {
-    return this.getCharacters(this.nextUrl!);
-  } else {
-    console.log('No next page');
-    return [];
   }
-}
 
-// Get previous page of characters
-async getPreviousPage(): Promise<People[]> {
-  if (this.hasPreviousPage()) {
-    return this.getCharacters(this.previousUrl!);
-  } else {
-    console.log('No previous page');
-    return [];
+  // Fetch characters
+  async getCharacters(pageUrl: string = `${this.serverUrl}people/`): Promise<People[]> {
+    const result = await this.getPaginatedData<People>(pageUrl);
+    console.log(result);
+    return result.results;
   }
-}
+
+  // Fetch starships
+  async getStarships(pageUrl: string = `${this.serverUrl}starships/`): Promise<Starship[]> {
+    const result = await this.getPaginatedData<Starship>(pageUrl);
+    console.log(result);
+    return result.results;
+  }
+
+  // Fetch vehicles
+  async getVehicles(pageUrl: string = `${this.serverUrl}vehicles/`): Promise<Vehicle[]> {
+    const result = await this.getPaginatedData<Vehicle>(pageUrl);
+    console.log(result);
+    return result.results;
+  }
+
+  // Fetch species
+  async getSpecies(pageUrl: string = `${this.serverUrl}species/`): Promise<Species[]> {
+    const result = await this.getPaginatedData<Species>(pageUrl);
+    console.log(result);
+    return result.results;
+  }
+
+  // Fetch planets
+  async getPlanets(pageUrl: string = `${this.serverUrl}planets/`): Promise<Planet[]> {
+    const result = await this.getPaginatedData<Planet>(pageUrl);
+    console.log(result);
+    return result.results;
+  }
 }

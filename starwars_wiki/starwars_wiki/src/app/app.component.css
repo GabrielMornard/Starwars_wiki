@@ -20,9 +20,11 @@ app-navbar {
 } 
 /* Content section: takes up remaining space */
 .content {
-  flex: 1; /* This makes content grow and take up the remaining space */
+  flex: 1; 
   padding-top: 60px; /* Add space below the navbar to prevent content from being hidden behind it */
   padding: 20px;
+  min-height: 30em;
+  overflow: auto;
   background-color: #121212; /* Dark Space Black background for content */
   color: #F0F0F0; /* Galactic White for text */
 }

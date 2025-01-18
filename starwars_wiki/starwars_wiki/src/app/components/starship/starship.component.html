@@ -1,0 +1,30 @@
+<!-- Spinner: Shows when data is loading -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div> <!-- Spinner for loading -->
+</div>
+
+<!-- Starship Cards: Only shows when data is loaded -->
+<div *ngIf="!isLoading">
+  <div class="starship-container">
+    <div *ngFor="let starship of starships" class="starship-card">
+      <div class="starship-image">
+        <img [src]="getStarshipImage(starship)" alt="{{ starship.name }}" />
+      </div>
+      <div class="starship-info">
+        <h3 class="starship-name">{{ starship.name }}</h3>
+        <p class="starship-detail"><strong>Model:</strong> {{ starship.model }}</p>
+        <p class="starship-detail"><strong>Manufacturer:</strong> {{ starship.manufacturer }}</p>
+        <p class="starship-detail"><strong>Cost in Credits:</strong> {{ starship.cost_in_credits }}</p>
+        <p class="starship-detail"><strong>Cargo Capacity:</strong> {{ starship.cargo_capacity }}</p>
+        <p class="starship-detail"><strong>Passengers:</strong> {{ starship.passengers }}</p>
+        <p class="starship-detail"><strong>Starship Class:</strong> {{ starship.starship_class }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Buttons -->
+  <div class="pagination-buttons">
+    <button class="previous" (click)="loadPreviousPage()" [disabled]="!ApiService.hasPreviousPage()">Previous</button>
+    <button class="next" (click)="loadNextPage()" [disabled]="!ApiService.hasNextPage()">Next</button>
+  </div>
+</div>

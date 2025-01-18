@@ -6,10 +6,10 @@ export class Movie{
     producer: String;
     release_date: Date; 
     characters: People[];
-    planets: String;//A CHANGER
-    starships: Starship[];
-    vehicles: String;//A CHANGER
-    species: String;// A CHANGER
+    planets: String[];
+    starships: String[];
+    vehicles: String[];
+    species: String[];
     created: String;
     edited: String;
     url: String; 
@@ -23,10 +23,10 @@ export class Movie{
         producer: string,
         release_date: string | Date,
         characters: People[] = [],
-        planets: string = '',
-        starships: Starship[] = [],
-        vehicles: string = '',
-        species: string = '',
+        planets: string[] = [],
+        starships: String[] = [],
+        vehicles: String[] = [],
+        species: String[] = [],
         created: string,
         edited: string,
         url: string
@@ -57,11 +57,11 @@ export class People{
   eye_color: String;
   birth_year: String;
   gender: String;
-  homeworld: String; //A CHANGER
-  films: Movie[];
-  species: String[]; //A CHANGER
-  vehicles: String[]; //A CHANGER
-  starships: Starship[];
+  homeworld: String;
+  films: String[];
+  species: String[];
+  vehicles: String[]; 
+  starships: String[];
   created: String;
   edited: String;
   url: String;
@@ -76,10 +76,10 @@ export class People{
     birth_year: String = '',
     gender: String = '',
     homeworld: String = '',
-    films: Movie[] = [],
+    films: String[] = [],
     species: String[] = [],
     vehicles: String[] = [],
-    starships: Starship[] = [],
+    starships: String[] = [],
     created: String = '',
     edited: String = '',
     url: String = ''
@@ -118,8 +118,8 @@ export class Starship {
   model: String;
   name: String;
   passengers: String;
-  films: Movie[];
-  pilots: People[];
+  films: String[];
+  pilots: String[];
   starship_class: String;
   url: String;
 
@@ -138,8 +138,8 @@ export class Starship {
     model: String = '',
     name: String = '',
     passengers: String = '',
-    films: Movie[] = [],
-    pilots: People[] = [],
+    films: String[] = [],
+    pilots: String[] = [],
     starship_class: String = '',
     url: String = ''
   ) {
@@ -160,6 +160,162 @@ export class Starship {
     this.films = films;
     this.pilots = pilots;
     this.starship_class = starship_class;
+    this.url = url;
+  }
+}
+
+export class Vehicle {
+  cargo_capacity: String;
+  consumables: String;
+  cost_in_credits: String;
+  created: String;
+  crew: String;
+  edited: String;
+  length: String;
+  manufacturer: String;
+  max_atmosphering_speed: String;
+  model: String;
+  name: String;
+  passengers: String;
+  pilots: String[];
+  films: String[];
+  url: String;
+  vehicle_class: String;
+
+  constructor(
+    cargo_capacity: String = '',
+    consumables: String = '',
+    cost_in_credits: String = '',
+    created: String = '',
+    crew: String = '',
+    edited: String = '',
+    length: String = '',
+    manufacturer: String = '',
+    max_atmosphering_speed: String = '',
+    model: String = '',
+    name: String = '',
+    passengers: String = '',
+    pilots: String[] = [],
+    films: String[] = [],
+    url: String = '',
+    vehicle_class: String = ''
+  ) {
+    this.cargo_capacity = cargo_capacity;
+    this.consumables = consumables;
+    this.cost_in_credits = cost_in_credits;
+    this.created = created;
+    this.crew = crew;
+    this.edited = edited;
+    this.length = length;
+    this.manufacturer = manufacturer;
+    this.max_atmosphering_speed = max_atmosphering_speed;
+    this.model = model;
+    this.name = name;
+    this.passengers = passengers;
+    this.pilots = pilots;
+    this.films = films;
+    this.url = url;
+    this.vehicle_class = vehicle_class;
+  }
+}
+
+export class Species {
+  average_height: String;
+  average_lifespan: String;
+  classification: String;
+  created: String;
+  designation: String;
+  edited: String;
+  eye_colors: String;
+  hair_colors: String;
+  homeworld: String; 
+  language: String;
+  name: String;
+  people: String[];
+  films: String[];
+  skin_colors: String;
+  url: String;
+
+  constructor(
+    average_height: String = '',
+    average_lifespan: String = '',
+    classification: String = '',
+    created: String = '',
+    designation: String = '',
+    edited: String = '',
+    eye_colors: String = '',
+    hair_colors: String = '',
+    homeworld: String = '',
+    language: String = '',
+    name: String = '',
+    people: String[] = [],
+    films: String[] = [],
+    skin_colors: String = '',
+    url: String = ''
+  ) {
+    this.average_height = average_height;
+    this.average_lifespan = average_lifespan;
+    this.classification = classification;
+    this.created = created;
+    this.designation = designation;
+    this.edited = edited;
+    this.eye_colors = eye_colors;
+    this.hair_colors = hair_colors;
+    this.homeworld = homeworld;
+    this.language = language;
+    this.name = name;
+    this.people = people;
+    this.films = films;
+    this.skin_colors = skin_colors;
+    this.url = url;
+  }
+}
+
+export class Planet {
+  climate: String;
+  created: String;
+  diameter: String;
+  edited: String;
+  films: string[];
+  gravity: String;
+  name: String;
+  orbital_period: String;
+  population: String;
+  residents: string[]; 
+  rotation_period: String;
+  surface_water: String;
+  terrain: String;
+  url: String;
+
+  constructor(
+    climate: String = '',
+    created: String = '',
+    diameter: String = '',
+    edited: String = '',
+    films: string[] = [],
+    gravity: String = '',
+    name: String = '',
+    orbital_period: String = '',
+    population: String = '',
+    residents: string[] = [],
+    rotation_period: String = '',
+    surface_water: String = '',
+    terrain: String = '',
+    url: String = ''
+  ) {
+    this.climate = climate;
+    this.created = created;
+    this.diameter = diameter;
+    this.edited = edited;
+    this.films = films;
+    this.gravity = gravity;
+    this.name = name;
+    this.orbital_period = orbital_period;
+    this.population = population;
+    this.residents = residents;
+    this.rotation_period = rotation_period;
+    this.surface_water = surface_water;
+    this.terrain = terrain;
     this.url = url;
   }
 }

@@ -1,14 +1,22 @@
-<div class="movie-container">
-  <div class="movie-card" *ngFor="let movie of movies">
-    <div class="movie-card-header">
-      <img [src]="getMovieImage(movie)" alt="Movie Poster" class="movie-image" />
-    </div>
-    <div class="movie-card-body">
-      <h2 class="movie-title">{{ movie.title }}</h2>
-      <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
-    </div>
-    <div class="movie-card-footer">
-      <button class="btn-info">More Info</button>
+<!-- Spinner: Shows when data is loading -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div> <!-- Spinner for loading -->
+</div>
+
+<!-- Character Cards: Only shows when data is loaded -->
+<div *ngIf="!isLoading">
+  <div class="movie-container">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <div class="movie-card-header">
+        <img [src]="getMovieImage(movie)" alt="Movie Poster" class="movie-image" />
+      </div>
+      <div class="movie-card-body">
+        <h2 class="movie-title">{{ movie.title }}</h2>
+        <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
+      </div>
+      <div class="movie-card-footer">
+        <button class="btn-info">More Info</button>
+      </div>
     </div>
   </div>
 </div>
