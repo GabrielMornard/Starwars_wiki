@@ -21,6 +21,24 @@
   max-width: 300px; /* Limit the image container's width */
 }
 
+.opening-crawl {
+  font-size: 1.2rem;  /* Slightly larger font for better readability */
+  color: #aaa; /* Darker shade of grey */
+  text-align: center; /* Center the text horizontally */
+  line-height: 1.8; /* Increase line height for better spacing */
+  margin: 20px 0; /* Add vertical spacing above and below the text */
+  font-style: italic; /* Optional: Italicize the text for emphasis */
+  padding: 10px 20px; /* Add padding for a more spacious feel */
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle background to make it stand out */
+  border-radius: 8px; /* Add slight rounding to the background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow effect */
+  width: 100%; /* Ensure the text spans the full container width */
+  max-width: 800px; /* Limit the maximum width for better readability */
+  margin-left: auto; /* Center horizontally in case of container alignment */
+  margin-right: auto; /* Center horizontally in case of container alignment */
+}
+
+
 .character-img {
   width: 100%; /* Make the image take up the full width of its container */
   height: auto; /* Maintain the aspect ratio */

@@ -10,6 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() movie!: Movie;
+  @Input() imgUrl!: String;
   constructor() { }
 
   ngOnInit() {

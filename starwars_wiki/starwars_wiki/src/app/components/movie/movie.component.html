@@ -20,5 +20,5 @@
 
 <div *ngIf="selectedMovie">
   <button class="back" (click)="deselectMovie()">Back</button>
-  <app-movieDetails [movie]="selectedMovie" ></app-movieDetails>
+  <app-movieDetails [movie]="selectedMovie" [imgUrl]="getMovieImage(selectedMovie)"></app-movieDetails>
 </div>
