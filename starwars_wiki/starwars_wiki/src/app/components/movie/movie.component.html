@@ -4,9 +4,9 @@
 </div>
 
 <!-- Character Cards: Only shows when data is loaded -->
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading && !selectedMovie">
   <div class="movie-container">
-    <div class="movie-card" *ngFor="let movie of movies">
+    <div class="movie-card" *ngFor="let movie of movies" (click)="selectMovie(movie)">
       <div class="movie-card-header">
         <img [src]="getMovieImage(movie)" alt="Movie Poster" class="movie-image" />
       </div>
@@ -14,9 +14,11 @@
         <h2 class="movie-title">{{ movie.title }}</h2>
         <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
       </div>
-      <div class="movie-card-footer">
-        <button class="btn-info">More Info</button>
-      </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="selectedMovie">
+  <button class="back" (click)="deselectMovie()">Back</button>
+  <app-movieDetails [movie]="selectedMovie" ></app-movieDetails>
 </div>

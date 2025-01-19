@@ -15,10 +15,21 @@ export class MovieComponent implements OnInit {
 
   movies: Movie[] = [];
   isLoading: boolean = false;
+
+  selectedMovie!: Movie;
+
   async ngOnInit() {
     this.isLoading = true;
     this.movies = await this.ApiService.getMovies();
     this.isLoading = false;
+  }
+
+ deselectMovie(): void {
+    this.selectedMovie = null!;
+  }
+
+  selectMovie(movie: Movie): void {
+    this.selectedMovie = movie;
   }
 
   getIdFromUrl(url: string): number | null {

@@ -48,6 +48,7 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .movie-card:hover {
@@ -108,4 +109,32 @@
 .btn-info:hover {
   background-color: #56D798; /* Lightsaber Green on hover */
   transform: scale(1.05); /* Slight zoom effect */
+}
+/* Back Button Styling */
+button.back {
+  background-color: #e60000; /* Red background to indicate a "back" action */
+  color: rgb(0, 0, 0); /* Black text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px; /* Adds space between the button and content below */
+  margin-bottom: 20px; /* Adds space below the button */
+  display: block; /* Ensure the button takes up its own line */
+  width: auto; /* Adjust width based on content */
+  text-align: center; /* Center the text */
+  z-index: 1; /* Ensure the button is above the content */
+}
+
+button.back:hover {
+  background-color: #cc0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+button.back:disabled {
+  background-color: #ccc; /* Gray when disabled */
+  cursor: not-allowed; /* Disable cursor */
 }

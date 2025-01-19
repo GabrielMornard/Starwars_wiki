@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StarshipComponent } from './components/starship/starship.component';
 import { PeopleDetailsComponent } from './components/peopleDetails/peopleDetails.component';
+import { MovieDetailsComponent } from './components/movieDetails/movieDetails.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PeopleDetailsComponent } from './components/peopleDetails/peopleDetails
     MovieComponent,
     PeopleComponent,
     StarshipComponent,
-    PeopleDetailsComponent
+    PeopleDetailsComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
