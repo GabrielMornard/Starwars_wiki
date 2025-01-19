@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StarshipComponent } from './components/starship/starship.component';
+import { PeopleDetailsComponent } from './components/peopleDetails/peopleDetails.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StarshipComponent } from './components/starship/starship.component';
     FooterComponent,
     MovieComponent,
     PeopleComponent,
-    StarshipComponent
+    StarshipComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     BrowserModule,

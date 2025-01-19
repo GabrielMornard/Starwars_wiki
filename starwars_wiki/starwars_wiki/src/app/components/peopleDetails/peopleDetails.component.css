@@ -1,0 +1,159 @@
+.people-details {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 70%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.main-info {
+  display: flex; /* Use flexbox to arrange the content side by side */
+  gap: 30px; /* Space between the image and the details */
+  align-items: flex-start; /* Align items at the top */
+  padding: 20px;
+}
+
+.character-img-container {
+  flex: 1; /* Image container will take up 1 part of the space */
+  max-width: 300px; /* Limit the image container's width */
+}
+
+.character-img {
+  width: 100%; /* Make the image take up the full width of its container */
+  height: auto; /* Maintain the aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+.character-details {
+  flex: 2; /* Text container will take up 2 parts of the space */
+}
+
+.character-name {
+  font-size: 2rem;
+  color: #F1C40F;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.character-info p {
+  margin: 5px 0;
+}
+
+.character-lists {
+  margin-top: 20px;
+}
+
+.list-section {
+  margin-bottom: 20px;
+}
+
+.list-section h3 {
+  font-size: 1.2rem;
+  color: #15f2fd;
+  margin-bottom: 10px;
+}
+
+.list-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.metadata p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.metadata a {
+  color: #15f2fd;
+  text-decoration: none;
+}
+
+.metadata a:hover {
+  text-decoration: underline;
+}
+
+/* Movie container to hold all movie cards */
+.movie-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  gap: 20px; /* Space between movie cards */
+  justify-content: center; /* Center the cards horizontally */
+  padding: 20px;
+}
+
+/* Individual movie card styling */
+.movie-card {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  width: 150px; /* Set a fixed width for the movie card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow effect for the card */
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+.movie-card-header {
+  width: 100%;
+  height: 200px; /* Fixed height for movie poster */
+  overflow: hidden;
+}
+
+.movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make sure the image covers the area */
+}
+
+.movie-card-body {
+  padding: 10px;
+}
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-overflow: ellipsis; /* Optional, only needed for truncation */
+  white-space: normal; /* Allow text to wrap onto multiple lines */
+  overflow: visible; /* Ensure the text is fully visible */
+  word-wrap: break-word; /* Break long words onto the next line */
+  word-break: break-word; /* Ensure the text breaks at appropriate points */
+}
+
+
+/* Adjust the character image size */
+.character-img {
+  width: 100%; /* Ensure it takes up full width in its container */
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .main-info {
+    flex-direction: column; /* Stack the image and text vertically on small screens */
+    align-items: center;
+  }
+
+  .character-img-container {
+    max-width: 80%; /* Make the image smaller */
+  }
+
+  .character-details {
+    flex: 1;
+    margin-top: 20px;
+  }
+
+  .movie-card {
+    width: 100%; /* Make the movie cards take up full width on small screens */
+  }
+}

@@ -1,5 +1,6 @@
-import { Movie } from '../models/models';
-import { ApiService } from './../services/api.service';
+
+import { Movie } from 'src/app/models/models';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

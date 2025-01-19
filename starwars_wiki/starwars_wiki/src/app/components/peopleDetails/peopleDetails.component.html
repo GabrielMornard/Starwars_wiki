@@ -1,0 +1,67 @@
+<div class="people-details" *ngIf="character != undefined">
+  <div class="main-info">
+    <div class="character-img-container">
+      <img class="character-img" [src]="imageLink" alt="{{ character.name }}" />
+    </div>
+
+    <div class="character-details">
+      <h2 class="character-name">{{ character.name }}</h2>
+      <div class="character-info">
+        <p><strong>Height:</strong> {{ character.height }} cm</p>
+        <p><strong>Mass:</strong> {{ character.mass }} kg</p>
+        <p><strong>Hair Color:</strong> {{ character.hair_color }}</p>
+        <p><strong>Skin Color:</strong> {{ character.skin_color }}</p>
+        <p><strong>Eye Color:</strong> {{ character.eye_color }}</p>
+        <p><strong>Birth Year:</strong> {{ character.birth_year }}</p>
+        <p><strong>Gender:</strong> {{ character.gender }}</p>
+        <p><strong>Homeworld:</strong> {{ character.homeworld }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="character-lists">
+    <div class="list-section" *ngIf="character.films?.length">
+      <h3>Films</h3>
+      <div class="movie-container">
+        <div class="movie-card" *ngFor="let movie of movies">
+          <div class="movie-card-header">
+            <img
+              [src]="getMovieImage(movie)"
+              alt="Movie Poster"
+              class="movie-image"
+            />
+          </div>
+          <div class="movie-card-body">
+            <h4 class="movie-title">{{ movie.title }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-section" *ngIf="character.species?.length">
+      <h3>Species</h3>
+      <ul>
+        <li *ngFor="let specie of character.species">{{ specie }}</li>
+      </ul>
+    </div>
+
+    <div class="list-section" *ngIf="character.vehicles?.length">
+      <h3>Vehicles</h3>
+      <ul>
+        <li *ngFor="let vehicle of character.vehicles">{{ vehicle }}</li>
+      </ul>
+    </div>
+
+    <div class="list-section" *ngIf="character.starships?.length">
+      <h3>Starships</h3>
+      <ul>
+        <li *ngFor="let starship of character.starships">{{ starship }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metadata">
+    <p><strong>Created on SWAPI:</strong> {{ character.created }}</p>
+    <p><strong>Edited on SWAPI:</strong> {{ character.edited }}</p>
+  </div>
+</div>

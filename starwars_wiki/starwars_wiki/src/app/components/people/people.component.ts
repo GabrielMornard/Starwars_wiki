@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from '../models/models';
-import { ApiService } from '../services/api.service';
+import { People } from 'src/app/models/models';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   standalone: false,
@@ -15,11 +15,21 @@ export class PeopleComponent implements OnInit {
   peoples: People[] = [];
   isLoading: boolean = false;
 
+  selectedCharacter!: People;
+
   async ngOnInit() {
     this.isLoading = true;
     // Initial load of characters (people)
     this.peoples = await this.ApiService.getCharacters();
     this.isLoading = false;
+  }
+
+  deselectCharacter(): void {
+    this.selectedCharacter = null!; // Reset selected character to go back to the list
+  }
+
+  selectCharacter(character: People): void {
+    this.selectedCharacter = character; // Set the selected character
   }
 
   getIdFromUrl(url: string): number | null {

@@ -58,7 +58,7 @@ export class People{
   birth_year: String;
   gender: String;
   homeworld: String;
-  films: String[];
+  films: string[];
   species: String[];
   vehicles: String[]; 
   starships: String[];
@@ -76,7 +76,7 @@ export class People{
     birth_year: String = '',
     gender: String = '',
     homeworld: String = '',
-    films: String[] = [],
+    films: string[] = [],
     species: String[] = [],
     vehicles: String[] = [],
     starships: String[] = [],

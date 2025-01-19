@@ -37,7 +37,6 @@
   margin-bottom: 20px; /* Prevent overlap with pagination */
 }
 
-/* Pagination buttons container */
 .pagination-buttons {
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
@@ -45,14 +44,14 @@
   margin-top: 20px;
 }
 
-/* Character card styling */
 .character-card {
   display: flex;
+  flex-direction: column; /* Stack items vertically */
   background-color: #1a1a1a; /* Slightly darker background for cards */
   color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-  padding: 20px;
+  padding: 5px 20px 20px; /* Top: 10px, Right: 20px, Bottom: 20px, Left: 20px */
   width: 100%;
   max-width: 400px; /* Limit max card width */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -60,28 +59,28 @@
 
 .character-card:hover {
   transform: translateY(-8px); /* Lift effect */
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  cursor: pointer; 
 }
 
-/* Image styling inside character card */
 .character-image {
-  flex: 0 0 120px; /* Fixed image width */
-  margin-right: 20px; /* Space between image and text */
-  border-radius: 10px;
-  overflow: hidden;
+  width: 100%; /* Full width of the card */
+  height: 400px; /* Set a fixed height for the image */
+  border-radius: 10px; /* Add slight rounding to the image corners */
+  overflow: hidden; /* Ensure the image does not overflow */
 }
 
 .character-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure image fits and covers the container */
+  object-fit: cover; /* Ensure the image covers the container */
 }
 
 /* Character info section inside card */
 .character-info {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -89,23 +88,14 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #F1C40F; /* Imperial Yellow */
-  margin-bottom: 10px;
+  margin: 10px; /* Add space between name and image */
+  text-align: left; /* Center-align the name */
 }
-
-.character-detail {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #BDC3C7; /* Light metallic silver for text */
-}
-
-.character-detail strong {
-  color: #F1C40F; /* Imperial Yellow for label text */
-}
-
-/* Button styles */
+ 
+/* Styling for pagination buttons */
 button {
   background-color: #15f2fd; /* Lightsaber Blue */
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0); /* Black text */
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -125,7 +115,7 @@ button:disabled {
   cursor: not-allowed; /* Disable cursor */
 }
 
-/* Specific styling for the Previous button */
+/* Styling for the Previous button */
 button.previous {
   background-color: #e60000; /* Red background for Previous */
 }
@@ -135,7 +125,7 @@ button.previous:hover {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Glowing effect */
 }
 
-/* Specific styling for the Next button */
+/* Styling for the Next button */
 button.next {
   background-color: #15f2fd; /* Lightsaber Blue */
 }
@@ -143,6 +133,36 @@ button.next {
 button.next:hover {
   background-color: #0eacb4; /* Darker cyan on hover */
 }
+
+/* Back Button Styling */
+button.back {
+  background-color: #e60000; /* Red background to indicate a "back" action */
+  color: rgb(0, 0, 0); /* Black text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px; /* Adds space between the button and content below */
+  margin-bottom: 20px; /* Adds space below the button */
+  display: block; /* Ensure the button takes up its own line */
+  width: auto; /* Adjust width based on content */
+  text-align: center; /* Center the text */
+  z-index: 1; /* Ensure the button is above the content */
+}
+
+button.back:hover {
+  background-color: #cc0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+button.back:disabled {
+  background-color: #ccc; /* Gray when disabled */
+  cursor: not-allowed; /* Disable cursor */
+}
+
 
 /* Responsive Layout for smaller screens */
 @media (max-width: 1024px) {

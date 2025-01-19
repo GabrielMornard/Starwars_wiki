@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import { Movie, People, Planet, Species, Starship, Vehicle } from '../models/models';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { Movie, People, Planet, Species, Starship, Vehicle } from 'src/app/models/models';
+
 
 interface PaginatedResponse<T> {
   results: T[];
@@ -102,5 +103,9 @@ export class ApiService {
     const result = await this.getPaginatedData<Planet>(pageUrl);
     console.log(result);
     return result.results;
+  }
+
+  getMovieDetails(url: string): Promise<any> {
+    return firstValueFrom(this.http.get<any>(url)); // Utiliser firstValueFrom pour convertir l'observable en promesse
   }
 }

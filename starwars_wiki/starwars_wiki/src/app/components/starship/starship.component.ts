@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Starship } from '../models/models'; // Import Starship model
-import { ApiService } from '../services/api.service';
+import { Starship } from 'src/app/models/models';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   standalone: false,
